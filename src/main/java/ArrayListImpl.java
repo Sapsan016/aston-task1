@@ -52,7 +52,7 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
     public void add(int index, Object element) {
         checkIndex(index);
         checkCapacity();
-        for (int i = size - 1; i >= index; i--) {
+        for (int i = elements.length - 2; i >= index; i--) {
             elements[i + 1] = elements[i];
         }
         elements[index] = element;
@@ -68,7 +68,7 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
     @Override
     public void remove(int index) {
         checkIndex(index);
-        for (int i = index; i < size - 1; i++) {
+        for (int i = index; i < elements.length - 2; i++) {
             elements[i] = elements[i + 1];
         }
         size--;
@@ -79,6 +79,7 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
         Object[] empty = elements;
         for (int i = 0; i < size; i++)
             empty[i] = null;
+        size = 0;
     }
 
     @Override
@@ -100,7 +101,7 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
      * @param index проверяемый индекс
      */
     private void checkIndex(int index) {
-        if (index < 0 || index > size)
+        if (index < 0 || index > elements.length)
             throw new IndexOutOfBoundsException(index);
     }
 
