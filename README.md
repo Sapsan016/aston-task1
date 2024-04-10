@@ -2,6 +2,7 @@
 Homework project
 Реализован свой CustomArrayList.
  Рефлизованые методы:
+- получить размер коллекции: size(),
 - добавить элемент: add(T element), 
 - добавить элемент: по индексу: add(int index, T element), 
 - получить элемент: get(int index), 
