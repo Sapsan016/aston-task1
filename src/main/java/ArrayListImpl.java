@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Имплементация интерфуйса CustomArrayList
+ * Имплементация интерфейса CustomArrayList
  */
 public class ArrayListImpl<T> implements CustomArrayList<T> {
 
