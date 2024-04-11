@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Имплементация интерфуйса CustomArrayList
@@ -42,6 +44,11 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
     }
 
     @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    @Override
     public void add(Object element) {
         checkCapacity();
         elements[size] = element;
@@ -82,9 +89,37 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
         size = 0;
     }
 
-    @Override
-    public void sort() {
 
+    @Override
+    public String toString() {
+        return "ArrayListImpl{" +
+                "size=" + size +
+                ", elements=" + Arrays.toString(elements) +
+                '}';
+    }
+
+    @Override
+    public CustomArrayList<T> sort(CustomArrayList<T> list, Comparator<? super T> comparator) {
+        if (list.isEmpty() || list.size() < 2)
+            return list;
+        ArrayListImpl<T> smaller = new ArrayListImpl<>();
+        ArrayListImpl<T> greater = new ArrayListImpl<>();
+        T pivot = list.get(0);
+        for (int i = 1; i < list.size(); i++) {
+           T j = list.get(i);
+            if (comparator.compare(j, pivot) < 0)
+                smaller.add(j);
+            else
+                greater.add(j);
+        }
+        smaller = (ArrayListImpl<T>) sort(smaller, comparator);
+        greater = (ArrayListImpl<T>) sort(greater, comparator);
+        smaller.add(pivot);
+
+        for (int k = 0; k < greater.size; k++) {
+            smaller.add(greater.get(k));
+        }
+        return smaller;
     }
 
     /**

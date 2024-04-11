@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * Своя реализация коллекции ArrayList
  *
@@ -11,6 +13,11 @@ public interface CustomArrayList<T> {
      * @return размер коллекции
      */
     int size();
+
+    /**
+     * Возвращает true усли коллекция не содержит элементов
+     */
+    boolean isEmpty();
 
     /**
      * Добавляет элемент в конец коллекции
@@ -44,16 +51,13 @@ public interface CustomArrayList<T> {
     void remove(int index);
 
     /**
-     *
+     * Очищает коллекцию полностью
      */
 
     void clear();
 
     /**
-     *
+     * Сортирует коллекцию используя переданный Comparator
      */
-
-    void sort();
-
-
+    CustomArrayList<T> sort(CustomArrayList<T> list, Comparator<? super T> comparator);
 }

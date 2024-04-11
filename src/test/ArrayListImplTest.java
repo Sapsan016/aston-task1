@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayListImplTest {
@@ -54,6 +56,11 @@ class ArrayListImplTest {
     }
 
     @Test
-    void sort() {
+    void shouldSortElements() {
+        testList.add(5);
+        testList.add(3);
+        testList.add(2);
+        testList.add(7);
+        assertEquals(2, testList.sort(testList, (Integer::compare)).get(0));
     }
 }
