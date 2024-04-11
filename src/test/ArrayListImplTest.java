@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +16,11 @@ class ArrayListImplTest {
     @Test
     void sizeShouldBeZero() {
         assertEquals(0, testList.size());
+    }
+
+    @Test
+    void shouldBeEmpty() {
+        assertTrue(testList.isEmpty());
     }
 
     @Test
@@ -38,6 +42,11 @@ class ArrayListImplTest {
         assertEquals(8, testList.get(9));
     }
 
+    @Test
+    void shouldThrowIndexOutOfBoundsExceptionWhenPassedNegativeIndex() {
+        assertThrows(IndexOutOfBoundsException.class,
+                ()->testList.add(-1, 1));
+    }
 
     @Test
     void shouldRemoveAndShiftElementLeft() {
