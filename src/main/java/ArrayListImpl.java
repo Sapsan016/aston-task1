@@ -122,10 +122,10 @@ public class ArrayListImpl<T> implements CustomArrayList<T> {
     }
 
     /**
-     * Увеличивает в два раза размер коллекции
+     * Увеличивает размер коллекции в полтора раза
      */
     private void increaseCapacity() {
-        int newSize = elements.length * 2;
+        int newSize = (int) (elements.length * 1.5);
         elements = Arrays.copyOf(elements, newSize);
     }
 

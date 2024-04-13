@@ -8,12 +8,12 @@ Homework project
 - получить элемент: get(int index), 
 - удалить элемент remove(int index), 
 - очистить всю коллекцию: clear(), 
-- отсортировать sort() и (или) sort(Comparator<T> comparator)
+- отсортировать sort(CustomArrayList<T> list, Comparator<T> comparator)
   
   
 
 Реализован алгоритм quicksort для CustomArrayList.
-QuickSort принимает список любого типа и сортировать его. 
+QuickSort принимает список любого типа и сортирует его. 
 Используются: 
 ○ Java generics 
-○ Comparable, Comparator
+○ Comparator
